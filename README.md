@@ -1,265 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me | Washington Otieno</title>
-  <style>
-    /* ===== CSS Variables & Design Tokens ===== */
-    :root {
-      --primary: #0066ff;
-      --primary-hover: #0052cc;
-      --primary-light: rgba(0, 102, 255, 0.08);
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --bg-body: #f8fafc;
-      --bg-card: #ffffff;
-      --border-color: #e2e8f0;
-      --radius-lg: 20px;
-      --radius-md: 12px;
-      --shadow-subtle: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-      --shadow-hover: 0 12px 25px -5px rgba(0, 102, 255, 0.12);
-      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#f8fafc"> <meta name="description" content="Learn about Washington Otieno, a data analyst specializing in Python, SQL, Power BI, business intelligence, and econometric modeling."> <title>About Me | Washington Otieno</title>
 
-    /* ===== General Reset ===== */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style> /* ===== Design System ===== */ :root { --primary: #2563eb; --primary-dark: #1d4ed8; --primary-soft: #eff6ff; --heading: #0f172a; --text: #475569; --muted: #64748b; --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --radius: 18px; --shadow: 0 12px 35px rgba(15, 23, 42, 0.06); --transition: 200ms ease; }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg-body);
-      color: var(--text-main);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
+/* ===== Reset ===== / , ::before, ::after { box-sizing: border-box; }
 
-    /* ===== About Section ===== */
-    #about {
-      padding: 90px 20px;
-    }
+html { scroll-behavior: smooth; }
 
-    .about-container {
-      max-width: 980px;
-      margin: 0 auto;
-    }
+body { margin: 0; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); background: var(--background); line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-    /* ===== Section Header ===== */
-    .about-heading {
-      text-align: center;
-      margin-bottom: 48px;
-    }
+a { color: var(--primary); }
 
-    .section-label {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 14px;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 20px;
-    }
+/* ===== About Section ===== */ #about { padding: clamp(56px, 8vw, 100px) 20px; }
 
-    .about-title {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -1px;
-      color: #0f172a;
-    }
+.about-container { width: 100%; max-width: 1000px; margin: 0 auto; }
 
-    .about-title span {
-      background: linear-gradient(135deg, var(--primary) 0%, #00d2ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+/* ===== Heading ===== */ .about-heading { margin-bottom: 42px; text-align: center; }
 
-    .about-subtitle {
-      max-width: 620px;
-      margin: 16px auto 0;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-    }
+.section-label { display: inline-block; margin-bottom: 16px; padding: 5px 13px; border: 1px solid #bfdbfe; border-radius: 999px; background: var(--primary-soft); color: var(--primary-dark); font-size: 0.75rem; font-weight: 750; letter-spacing: 2px; text-transform: uppercase; }
 
-    /* ===== Main Card Content ===== */
-    .about-content {
-      padding: clamp(28px, 5vw, 48px);
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-top: 5px solid var(--primary);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-subtle);
-    }
+.about-title { margin: 0; color: var(--heading); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.2; overflow-wrap: anywhere; }
 
-    .about-content p {
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-      color: #334155;
-    }
+.about-title span { color: var(--primary); }
 
-    .about-content .intro {
-      color: #0f172a;
-      font-size: 1.2rem;
-      font-weight: 600;
-      line-height: 1.8;
-    }
+.about-subtitle { max-width: 660px; margin: 18px auto 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.12rem); line-height: 1.8; }
 
-    .highlight {
-      color: var(--primary);
-      font-weight: 700;
-    }
+/* ===== Main Content Card ===== */ .about-content { padding: clamp(24px, 5vw, 48px); border: 1px solid var(--border); border-top: 4px solid var(--primary); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
 
-    /* ===== Information Grid ===== */
-    .about-details {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 36px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border-color);
-    }
+.about-content p { margin: 0 0 20px; font-size: 1rem; line-height: 1.9; }
 
-    .detail-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-      background: #fafbfc;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      transition: var(--transition);
-    }
+.about-content .intro { color: #1e293b; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 550; line-height: 1.85; }
 
-    .detail-card:hover {
-      transform: translateY(-4px);
-      background: var(--bg-card);
-      border-color: var(--primary);
-      box-shadow: var(--shadow-hover);
-    }
+.highlight { color: var(--primary-dark); font-weight: 700; }
 
-    .detail-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
+/* ===== Detail Cards ===== */ .about-details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 34px; padding-top: 30px; border-top: 1px solid var(--border); }
 
-    .detail-icon svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-    }
+.detail-card { display: flex; align-items: flex-start; gap: 13px; min-width: 0; padding: 20px 16px; border: 1px solid var(--border); border-radius: 14px; background: #fbfdff; transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition); }
 
-    .detail-card h3 {
-      margin-bottom: 4px;
-      color: #0f172a;
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
+.detail-card:hover { transform: translateY(-3px); border-color: #93c5fd; box-shadow: 0 8px 22px rgba(37, 99, 235, 0.08); }
 
-    .detail-card p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
+.detail-icon { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; border-radius: 11px; background: var(--primary-soft); color: var(--primary); }
 
-    /* ===== Mobile & Responsiveness ===== */
-    @media (max-width: 640px) {
-      #about {
-        padding: 60px 16px;
-      }
-      .about-content {
-        padding: 24px;
-      }
-      .detail-card {
-        padding: 16px;
-      }
-    }
+.detail-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ===== Accessibility (Motion) ===== */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        transition: none !important;
-        transform: none !important;
-      }
-    }
-  </style>
-</head>
-<body>
+.detail-card h3 { margin: 1px 0 5px; color: var(--heading); font-size: 0.9rem; font-weight: 750; line-height: 1.5; }
 
-  <section id="about">
-    <div class="about-container">
-      
-      <!-- Section Header -->
-      <div class="about-heading">
-        <span class="section-label">Get To Know Me</span>
-        <h1 class="about-title">Hi, I'm <span>Washington Otieno</span></h1>
-        <p class="about-subtitle">Data Analyst & Technical Solutions Specialist transforming complex business data into actionable strategies.</p>
-      </div>
+.detail-card p { margin: 0; color: var(--muted); font-size: 0.85rem; line-height: 1.7; overflow-wrap: anywhere; }
 
-      <!-- Main About Card -->
-      <div class="about-content">
-        <p class="intro">
-          I am a results-driven <span class="highlight">Data Analyst</span> with a core technical stack spanning <span class="highlight">Python, SQL, Power BI, and Econometric Modeling</span>.
-        </p>
-        <p>
-          I bridge the gap between complex datasets and decisive strategic choices. Whether querying relational databases, building end-to-end Pandas processing pipelines, running statsmodels regressions, or designing interactive dashboards, I deliver end-to-end analytical solutions across diverse business contexts.
-        </p>
+/* ===== Footer ===== */ .about-footer { margin-top: 28px; color: var(--muted); font-size: 0.9rem; text-align: center; }
 
-        <!-- Details Grid -->
-        <div class="about-details">
-          
-          <!-- Card 1 -->
-          <div class="detail-card">
-            <div class="detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </div>
-            <div>
-              <h3>Core Specialization</h3>
-              <p>Data Wrangling, SQL Analytics, Business Intelligence & Predictive Modeling</p>
-            </div>
-          </div>
+.about-footer span { color: var(--primary); font-weight: 650; }
 
-          <!-- Card 2 -->
-          <div class="detail-card">
-            <div class="detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            </div>
-            <div>
-              <h3>Technical Stack</h3>
-              <p>Python (Pandas, Statsmodels), SQL (SQLite/PostgreSQL), Power BI & Tableau</p>
-            </div>
-          </div>
+/* ===== Responsive Layout ===== */ @media (max-width: 760px) { .about-details { grid-template-columns: 1fr; }
 
-          <!-- Card 3 -->
-          <div class="detail-card">
-            <div class="detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            </div>
-            <div>
-              <h3>Location</h3>
-              <p>Kenya (Available for Global Remote Operations)</p>
-            </div>
-          </div>
+.detail-card { padding: 18px; } }
 
-        </div>
-      </div>
+@media (max-width: 480px) { #about { padding: 48px 15px; }
 
-    </div>
-  </section>
+.about-heading { margin-bottom: 28px; }
 
-</body>
-</html>
+.about-content { padding: 23px 19px; }
+
+.about-title { letter-spacing: -0.8px; } }
+
+/* ===== Accessibility ===== */ @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; }
+
+, ::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+
+.detail-card:hover { transform: none; } } </style> </head>
+
+<body> <main> <section id="about" aria-labelledby="about-title"> <div class="about-container">
+
+<header class="about-heading"> <span class="section-label">Get to know me</span>
+
+<h1 class="about-title" id="about-title"> About <span>Me</span> </h1>
+
+<p class="about-subtitle"> Data Analyst & Technical Solutions Specialist turning complex data into clear insights that support smarter decisions. </p> </header>
+
+<div class="about-content"> <p class="intro"> I'm <span class="highlight">Washington Otieno</span>, a data analyst passionate about transforming complex datasets into meaningful insights and actionable business strategies. </p>
+
+<p> My technical toolkit includes <span class="highlight">Python, SQL, Power BI, and econometric modeling</span>. I use these tools to explore data, identify trends, investigate business questions, and communicate findings in a clear and practical way. </p>
+
+<p> From querying relational databases and building data-processing workflows with Pandas to conducting statistical analysis with Statsmodels and designing interactive dashboards, I enjoy developing analytical solutions that connect technical work with real-world decision-making. </p>
+
+<p> I'm committed to continuous learning, analytical rigor, and writing maintainable code. My goal is to make data easier to understand and more useful for the people making important decisions. </p>
+
+<div class="about-details">
+
+<article class="detail-card"> <div class="detail-icon"> <svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M4 19V5"></path> <path d="M4 19h17"></path> <path d="m7 15 4-4 3 2 5-6"></path> <path d="M15 7h4v4"></path> </svg> </div>
+
+<div> <h3>Core Specialization</h3> <p> Data analysis, data wrangling, business intelligence, and statistical modeling. </p> </div> </article>
+
+<article class="detail-card"> <div class="detail-icon"> <svg viewBox="0 0 24 24" aria-hidden="true"> <rect x="3" y="4" width="18" height="16" rx="2"></rect> <path d="M8 9h8"></path> <path d="M8 13h5"></path> <path d="M8 17h8"></path> </svg> </div>
+
+<div> <h3>Technical Toolkit</h3> <p> Python, Pandas, SQL, Power BI, Tableau, and Statsmodels. </p> </div> </article>
+
+<article class="detail-card"> <div class="detail-icon"> <svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path> <circle cx="12" cy="10" r="2.5"></circle> </svg> </div>
+
+<div> <h3>Location</h3> <p> Kenya · Open to exploring remote opportunities. </p> </div> </article>
+
+</div> </div>
+
+<footer class="about-footer"> Turning data into <span>insight</span>, and insight into impact. </footer>
+
+</div> </section> </main> </body> </html>
